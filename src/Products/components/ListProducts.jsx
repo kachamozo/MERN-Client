@@ -9,12 +9,22 @@ const ListProducts = () => {
 	useEffect(() => {
 		async function loadProducts() {
 			const response = await getProducts();
-			if (response.status === 200) console.log(response.data.products);
+			if (response.status === 200) setProducts(response.data.products);
+			setIsLoading(false);
 		}
 		loadProducts();
 	}, []);
 
-	return <>{isLoading ? <Loading /> : 'mostrar los componentes del fetch'}</>;
+	if (isLoading) return <Loading />;
+	return (
+		<>
+			{products.length ? (
+				console.log(products)
+			) : (
+				<h2 className='title has-text-centered'>No existen productos</h2>
+			)}
+		</>
+	);
 };
 
 export default ListProducts;
