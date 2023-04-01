@@ -1,15 +1,6 @@
 import { useEffect, useState } from 'react';
-import axios from 'axios';
+import getProducts from '../services';
 import Loading from './Loading';
-
-const getProducts = () => {
-	try {
-		const response = axios.get('http://localhost:3001/products');
-		return response;
-	} catch (error) {
-		console.log(error);
-	}
-};
 
 const ListProducts = () => {
 	const [isLoading, setIsLoading] = useState(true);
