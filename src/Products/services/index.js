@@ -16,15 +16,22 @@ export const getProducts = async () => {
 };
 
 export const saveProduct = async (productData) => {
+	const { name, priceUnitary, size, description, image } = productData;
 	try {
-		console.log(productData);
-		// const response = await axios({
-		// 	url: `${baseUrl}/products`,
-		// 	method: 'POST',
-		// 	data: productData,
-		// });
+		const formData = new FormData();
+		formData.append('name', name);
+		formData.append('priceUnitary', priceUnitary);
+		formData.append('size', size);
+		formData.append('description', description);
+		formData.append('image', image);
 
-		// return response;
+		const response = await axios({
+			url: `${baseUrl}/products`,
+			method: 'POST',
+			data: formData,
+		});
+
+		return response;
 	} catch (error) {
 		console.log(error);
 	}
