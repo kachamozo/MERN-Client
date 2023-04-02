@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import getProducts from '../services';
+import { getProducts } from '../services';
 import Loading from './Loading';
 
 const ListProducts = () => {

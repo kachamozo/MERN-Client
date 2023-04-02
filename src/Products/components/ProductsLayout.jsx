@@ -4,9 +4,14 @@ import Header from './Header';
 import ListProducts from './ListProducts';
 import { Modal } from 'react-bulma-components';
 import Form from './Form';
+import { saveProduct } from '../services';
 
 const ProductLayout = () => {
 	const [isOpenModal, setIsOpenModal] = useState(false);
+
+	const handleSubmit = (data) => {
+		saveProduct(data);
+	};
 
 	return (
 		<>
@@ -19,7 +24,7 @@ const ProductLayout = () => {
 						<Modal.Card.Title>Add Product</Modal.Card.Title>
 					</Modal.Card.Header>
 					<Modal.Card.Body>
-						<Form />
+						<Form handleSubmit={handleSubmit} />
 					</Modal.Card.Body>
 				</Modal.Card>
 			</Modal>

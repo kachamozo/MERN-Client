@@ -1,7 +1,7 @@
 import { useRef, useState } from 'react';
 import { Form as formBulma, Button } from 'react-bulma-components';
 
-const Form = () => {
+const Form = ({ handleSubmit }) => {
 	const { Field, Control, Label, Input } = formBulma;
 
 	const [input, setInput] = useState({
@@ -18,14 +18,14 @@ const Form = () => {
 		setInput({ ...input, [name]: value });
 	};
 
-	const handleSubmit = (e) => {
+	// _handleSubmit es una funcion privada del componente para poder reutilizarlo
+	const _handleSubmit = (e) => {
 		e.preventDefault();
-		console.log(input);
-		console.log(refFile.current.files);
+		handleSubmit({ ...input, image: refFile.current.files[0] });
 	};
 
 	return (
-		<form onSubmit={handleSubmit}>
+		<form onSubmit={_handleSubmit}>
 			<Field>
 				<Label>Name</Label>
 				<Control>
