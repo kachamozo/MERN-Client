@@ -19,7 +19,7 @@ const ListProducts = () => {
 	return (
 		<>
 			{products.length ? (
-				console.log(products)
+				'mostrar resultados'
 			) : (
 				<h2 className='title has-text-centered'>No existen productos</h2>
 			)}
