@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import AddButton from './AddButton';
 import Header from './Header';
 import ListProducts from './ListProducts';
-import { Modal } from 'react-bulma-components';
+import { Container, Modal } from 'react-bulma-components';
 import Form from './Form';
 import Loading from './Loading';
 import { saveProduct, getProducts } from '../services';
@@ -26,11 +26,14 @@ const ProductLayout = () => {
 		setIsOpenModal(false);
 	};
 
-	if (isLoading) return <Loading />;
 	return (
-		<>
+		<Container>
 			<Header title='Products App' />
 			<AddButton onClick={() => setIsOpenModal(true)} />
+			{isLoading && <Loading />}
+			{!isLoading && !products.length && (
+				<h2 className='title has-text-centered'>No existen productos</h2>
+			)}
 			<ListProducts products={products} />
 			<Modal show={isOpenModal} onClose={() => setIsOpenModal(false)}>
 				<Modal.Card>
@@ -42,7 +45,7 @@ const ProductLayout = () => {
 					</Modal.Card.Body>
 				</Modal.Card>
 			</Modal>
-		</>
+		</Container>
 	);
 };
 

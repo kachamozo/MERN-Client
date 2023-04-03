@@ -16,11 +16,11 @@ export const getProducts = async () => {
 };
 
 export const saveProduct = async (productData) => {
-	const { name, priceUnitary, size, description, image } = productData;
+	const { name, unitaryPrice, size, description, image } = productData;
 	try {
 		const formData = new FormData();
 		formData.append('name', name);
-		formData.append('priceUnitary', priceUnitary);
+		formData.append('unitaryPrice', unitaryPrice);
 		formData.append('size', size);
 		formData.append('description', description);
 		formData.append('image', image);
