@@ -6,6 +6,7 @@ import { Container, Modal } from 'react-bulma-components';
 import Form from './Form';
 import Loading from './Loading';
 import { saveProduct, getProducts } from '../services';
+import Img from './Img';
 
 const ProductLayout = () => {
 	const [isOpenModal, setIsOpenModal] = useState(false);
@@ -27,9 +28,12 @@ const ProductLayout = () => {
 	};
 
 	return (
-		<Container>
+		<Container breakpoint='mobile'>
 			<Header title='Products App' />
+
+			<Img />
 			<AddButton onClick={() => setIsOpenModal(true)} />
+			<br />
 			{isLoading && <Loading />}
 			{!isLoading && !products.length && (
 				<h2 className='title has-text-centered'>No existen productos</h2>

@@ -33,6 +33,7 @@ const Form = ({ handleSubmit }) => {
 						type='text'
 						name='name'
 						value={input.name}
+						required
 						onChange={(e) => {
 							handleChange(e);
 						}}
@@ -46,6 +47,7 @@ const Form = ({ handleSubmit }) => {
 						type='number'
 						name='unitaryPrice'
 						value={input.unitaryPrice}
+						required
 						onChange={(e) => {
 							handleChange(e);
 						}}
@@ -59,6 +61,7 @@ const Form = ({ handleSubmit }) => {
 						type='number'
 						name='size'
 						value={input.size}
+						required
 						onChange={(e) => {
 							handleChange(e);
 						}}
@@ -66,12 +69,13 @@ const Form = ({ handleSubmit }) => {
 				</Control>
 			</Field>
 			<Field>
-				<Label>Desciption</Label>
+				<Label>Description</Label>
 				<Control>
 					<Input
 						type='text'
 						name='description'
 						value={input.description}
+						required
 						onChange={(e) => {
 							handleChange(e);
 						}}
@@ -81,7 +85,7 @@ const Form = ({ handleSubmit }) => {
 			<Field>
 				<Label>Image</Label>
 				<Control>
-					<input type='file' ref={refFile} />
+					<input type='file' ref={refFile} required />
 				</Control>
 			</Field>
 			<Button type='submit' color='primary'>

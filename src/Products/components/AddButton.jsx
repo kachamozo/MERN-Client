@@ -5,7 +5,12 @@ const AddButton = ({ onClick }) => {
 		<Section>
 			<Container>
 				<div className='is-pulled-right '>
-					<Button onClick={onClick} color='primary' className='is-rounded '>
+					<Button
+						onClick={onClick}
+						color='primary'
+						className='is-rounded '
+						size='large'
+					>
 						Add
 					</Button>
 				</div>
